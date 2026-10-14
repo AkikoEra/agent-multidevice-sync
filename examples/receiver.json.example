@@ -1,0 +1,10 @@
+{
+  "listen_host": "127.0.0.1",
+  "listen_port": 9131,
+  "key_file": "/etc/agent-sync/sync.key",
+  "database": "/var/lib/agent-sync/state.db",
+  "device": "my-receiver",
+  "log_level": "info",
+  "_comment_listen_host": "只允许 127.0.0.1 或 Tailscale 网卡地址，禁止 0.0.0.0",
+  "schema_version": 1
+}

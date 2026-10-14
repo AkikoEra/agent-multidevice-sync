@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:9131/sync",
+  "key_file": "~/.agent-sync/sync.key",
+  "device": "my-collector",
+  "source": "~/.your-agent/state.json",
+  "outbox": "~/.agent-sync/outbox.db",
+  "interval_seconds": 300,
+  "timeout": 10,
+  "schema_version": 1,
+
+  "audited_schema": {
+    "_comment": "安全边界：只列出需要同步的字段，excluded 中的字段绝不读取",
+    "fields": [
+      "id",
+      "title",
+      "created_at",
+      "updated_at",
+      "state"
+    ],
+    "excluded": [
+      "api_key",
+      "token",
+      "secret",
+      "password",
+      "cookie",
+      "session_token",
+      "access_token",
+      "refresh_token",
+      "path",
+      "env"
+    ]
+  },
+  "_comment_url": "填入接收端的 Tailscale 地址或 127.0.0.1",
+  "_comment_source": "填入本机 Agent 状态库路径（.json 或 .sqlite）",
+  "_comment_device": "每台设备必须唯一，接收端据此区分来源"
+}
